@@ -55,7 +55,7 @@ public class RestBackend {
 
 
 	      
-	      get("/restaurant/:name", (req,res)->{
+	      get("/movies/:name", (req,res)->{
 		      MongoCollection<Document> collection = database.getCollection("restaurants");
 		      String filter=req.params("name").toLowerCase();
 		      filter=WordUtils.capitalizeFully(filter);
@@ -66,7 +66,7 @@ public class RestBackend {
 	    	    
 	    	  } else {
 	    		  res.status(404);
-	    		  return ("<html><body><h1>Title not found. </h1></body></html>");
+	    		  return ("<html><body><h1>Title not found. </h1></body></html>"); //till json
 	    	  }
 	          return myDoc.toJson();
 	      });
